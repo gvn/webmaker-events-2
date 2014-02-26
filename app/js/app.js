@@ -45,6 +45,14 @@ config(['$routeProvider',
 ]).
 run(['$http', '$rootScope',
   function ($http, $rootScope) {
+    $rootScope.config = {
+      isEmbedded: false
+    };
+
+    if (document.location.search.match('embedded=true')) {
+      $rootScope.config.isEmbedded = true;
+    }
+
     // Jump to top of viewport when new views load
     $rootScope.$on('$locationChangeSuccess', function (event) {
       window.scrollTo(0, 0);

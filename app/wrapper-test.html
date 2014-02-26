@@ -11,7 +11,7 @@
 
   <br/><br/>
 
-  <iframe style="border:0;" src="index.html" width="100%" height="800"></iframe>
+  <iframe style="border:0;" src="index.html?embedded=true" width="100%"></iframe>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
   <script type="text/javascript">
@@ -25,20 +25,19 @@
       if (contentHeight !== currentContentHeight) {
         contentHeight = currentContentHeight;
         $iframe.css('height', contentHeight);
-        console.log('height changed');
       }
     }, 1);
 
     $('.go-home').click(function(event) {
-      $iframe[0].src = 'index.html#/';
+      $iframe[0].src = 'index.html?embedded=true#/';
     });
 
     $('.go-add-event').click(function(event) {
-      $iframe[0].src = 'index.html#/add';
+      $iframe[0].src = 'index.html?embedded=true#/add';
     });
 
     $('.go-event-list').click(function(event) {
-      $iframe[0].src = 'index.html#/events';
+      $iframe[0].src = 'index.html?embedded=true#/events';
     });
 
   </script>
