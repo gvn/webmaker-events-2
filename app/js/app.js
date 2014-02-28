@@ -43,14 +43,25 @@ config(['$routeProvider',
     });
   }
 ]).
-run(['$http', '$rootScope',
-  function ($http, $rootScope) {
+run(['$http', '$rootScope', 'jquery',
+  function ($http, $rootScope, $) {
     $rootScope.config = {
       isEmbedded: false
     };
 
+    function receiveMessage(event) {
+      // Send current height & hash back
+      // Sending parsable strings instead of objects due to IE limitations
+      //
+      // http://caniuse.com/#feat=x-doc-messaging
+
+      event.source.postMessage('wme-height:' + $('html').height(), event.origin);
+      event.source.postMessage('wme-hash:' + window.location.hash, event.origin);
+    }
+
     if (document.location.search.match('embedded=true')) {
       $rootScope.config.isEmbedded = true;
+      window.addEventListener('message', receiveMessage, false);
     }
 
     // Jump to top of viewport when new views load

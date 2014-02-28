@@ -5,6 +5,7 @@ angular.module('myApp.services', ['ngResource'])
   .constant('moment', window.moment)
   .constant('chrono', window.chrono)
   .constant('showdown', window.Showdown)
+  .constant('jquery', window.$)
   .factory('eventService', ['$rootScope', '$resource', 'config',
     function ($rootScope, $resource, config) {
       return $resource(config.eventsLocation + '/events/:id', null, {
