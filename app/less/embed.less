@@ -1,19 +1,26 @@
 // Styles for use when embedded in webmaker.org as an iframe
 
 // webmaker.org breakpoints:
+//
 // @width-small: 320px;
 // @width-medium: 768px;
 // @width-large: 1020px;
 // @width-xlarge: 1540px;
 
-.container {
-  width: 100%;
-
-  @media (min-width: 1020px) {
-    width: 1020px;
+#wmo-embedded {
+  .navbar {
+    display: none;
   }
 
-  @media (min-width: 1540px) {
-    width: 1540px;
+  .container {
+    width: 100%;
+
+    @media (min-width: 1020px) {
+      width: 1020px;
+    }
+
+    @media (min-width: 1540px) {
+      width: 1540px;
+    }
   }
 }

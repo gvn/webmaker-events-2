@@ -61,6 +61,7 @@ run(['$http', '$rootScope', 'jquery',
 
     if (document.location.search.match('embedded=true')) {
       $rootScope.config.isEmbedded = true;
+      $('body').attr('id', 'wmo-embedded');
       window.addEventListener('message', receiveMessage, false);
     }
 
